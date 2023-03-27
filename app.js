@@ -10,27 +10,18 @@ function obtenerDatos() {
     fetch(ruta) 
         .then(respuesta => respuesta.json())
         .then(resultado => mostrarDatos(resultado)) 
-    
 }
 
-function mostrarDatos(resultado) {
-
-    console.log(resultado)
+function mostrarDatos({title, date, explanation, url, media_type}) {
     
-    // const titulo = document.querySelector('#titulo');
-    titulo.innerHTML = resultado.title;
-    // const fecha = document.querySelector('#fecha');
-    fecha.innerHTML = resultado.date;
-    // const descripcion = document.querySelector('#descripcion');
-    descripcion.innerHTML = resultado.explanation;
+    titulo.innerHTML = title;
+    fecha.innerHTML = date;
+    descripcion.innerHTML = explanation;
     const multimedia = document.querySelector('#c_multimedia');
 
-    if (resultado.media_type == "video") {
-        multimedia.innerHTML = `<iframe class="embed-responsive-item" src="${resultado.url}"></iframe>`
-        console.log('Hola1')
+    if (media_type == "video") {
+        multimedia.innerHTML = `<iframe class="embed-responsive-item" src="${url}"></iframe>`
     } else {
-        multimedia.innerHTML = `<img src="${resultado.url}" class="img-thumbnail" alt="${resultado.url}">`
-        console.log('Hola2')
+        multimedia.innerHTML = `<img src="${url}" class="img-thumbnail" alt="${url}">`
     }
-    console.log('Hola3')
 }
