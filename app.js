@@ -1,19 +1,14 @@
 window.addEventListener('load',obtenerDatos());
 
 function obtenerDatos() {
-
     const Nasa_key = "kNRo5GabnC1HKsHCG6okJksRm5ayAdaxteYKgnFo";
-    // const ruta = "https://api.nasa.gov/planetary/apod?api_hey=iC31i5mH5xdukxvPdRkJDX9kMwGuxeEM6JttYxyY"
     const ruta = `https://api.nasa.gov/planetary/apod?api_key=${Nasa_key}`;
-    // const ruta = "https://api.nasa.gov/planetary/apod?api_key=kNRo5GabnC1HKsHCG6okJksRm5ayAdaxteYKgnFo"
-
     fetch(ruta) 
         .then(respuesta => respuesta.json())
         .then(resultado => mostrarDatos(resultado)) 
 }
 
 function mostrarDatos({title, date, explanation, url, media_type}) {
-    
     titulo.innerHTML = title;
     fecha.innerHTML = date;
     descripcion.innerHTML = explanation;
